@@ -1,19 +1,17 @@
-<!doctype HTML>
-<html>
-
-<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-<script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
-
-<body style='margin : 0px; overflow: scroll;'>
-  <a-scene embedded arjs>
-    <!-- Камера -->
-    <a-marker preset="hiro" type="pattern" url="marker.patt">
-        <!-- 3D-модель -->
-        <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
-    </a-marker>
-    <a-entity camera></a-entity>
-</a-scene>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="debugUIEnabled: false; markersAreaEnabled: true; detectionMode: mono_and_matrix; matrixCodeType: 3x3; smooth: true; smoothCount: 5; smoothTolerance: 0.01;">
+        <!-- Камера -->
+        <a-marker preset="hiro" type="pattern" url="marker.patt">
+            <!-- 3D-модель -->
+            <a-box position="0 0.5 0" material="opacity: 0.5;"></a-box>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
 </body>
-
 </html>
