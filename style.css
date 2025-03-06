@@ -1,17 +1,26 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100vh;
+    margin: 0;
+}
+
 .buttons {
-	position: fixed;
-	bottom: 10px;
-	width: 100%;
-	display: flex;
-	justify-content: center;
+    position: fixed;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Добавляет промежуток между кнопками */
 }
 
 button {
-	padding: 15px 25px;
-	font-size: 18px;
-	border: none;
-	background-color: #007BFF;
-	color: white;
-	border-radius: 10px;
-	margin: 5px;
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
 }
