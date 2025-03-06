@@ -14,13 +14,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!model) {
         console.error("Model element not found");
-    } else {
-        if (model.hasAttribute("animation-mixer")) {
-            model.removeAttribute("animation-mixer"); // Stopping the animation
-        } else {
+    }
+
+    let playButton = document.getElementById("playButton");
+    let stopButton = document.getElementById("stopButton");
+
+    playButton.addEventListener('click', () => {
+        if (model && !model.hasAttribute("animation-mixer")) {
             model.setAttribute("animation-mixer", "clip: Mirzhakip.002Action; loop: repeat"); // Start animation
         }
-    }
+    });
+
+    stopButton.addEventListener('click', () => {
+        if (model && model.hasAttribute("animation-mixer")) {
+            model.removeAttribute("animation-mixer"); // Stop animation
+        }
+    });
 });
 
 if (!AFRAME.components['animation-mixer']) {
