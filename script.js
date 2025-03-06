@@ -20,13 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let stopButton = document.getElementById("stopButton");
 
     if (playButton) {
-        playButton.addEventListener('click', toggleAnimation);
+        playButton.addEventListener('click', playSpeech);
     } else {
         console.error("Play button element not found");
     }
 
     if (stopButton) {
-        stopButton.addEventListener('click', toggleAnimation);
+        stopButton.addEventListener('click', stopSpeech);
     } else {
         console.error("Stop button element not found");
     }
