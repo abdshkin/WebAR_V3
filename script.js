@@ -1,6 +1,6 @@
 let audio = document.getElementById("voice");
 
-function playSpeech () {
+function playSpeech() {
     audio.play();
 }
 
@@ -9,11 +9,19 @@ function stopSpeech() {
     audio.currentTime = 0;
 }
 
-let model = document.querySelector("#model");
+document.addEventListener('DOMContentLoaded', () => {
+    let model = document.querySelector("#model");
 
-if (!model) {
-    console.error("Model element not found");
-}
+    if (!model) {
+        console.error("Model element not found");
+    } else {
+        if (model.hasAttribute("animation-mixer")) {
+            model.removeAttribute("animation-mixer"); // Stopping the animation
+        } else {
+            model.setAttribute("animation-mixer", "clip: Mirzhakip.002Action; loop: repeat"); // Start animation
+        }
+    }
+});
 
 if (!AFRAME.components['animation-mixer']) {
     AFRAME.registerComponent('animation-mixer', {
@@ -28,14 +36,3 @@ if (!AFRAME.components['animation-mixer']) {
         }
     });
 }
-
-if (model) {
-    if (model.hasAttribute("animation-mixer")) {
-        model.removeAttribute("animation-mixer"); // Stopping the animation
-    } else {
-        model.setAttribute("animation-mixer", "clip: Mirzhakip.002Action; loop: repeat"); // Start animation
-    }
-} else {
-    console.error("Model element not found");
-}
-
