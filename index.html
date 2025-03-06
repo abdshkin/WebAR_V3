@@ -37,17 +37,14 @@
         }
 
         function toggleAnimation() {
-            let model = document.querySelector("#model");
-            let mixer = model.components["animation-mixer"];
-            
-            if (mixer && mixer.data.clips.length > 0) {
-                if (mixer.el.isPlaying) {
-                    mixer.stopAction();
-                } else {
-                    mixer.playAction();
-                }
-            }
-        }
+    let model = document.querySelector("#model");
+    if (model && model.components["animation-mixer"]) {
+        model.setAttribute("animation-mixer", "clip: *"); // Запускает все доступные анимации
+    } else {
+        console.log("Анимация не найдена или не загружена.");
+    }
+}
+
     </script>
 </body>
 </html>
