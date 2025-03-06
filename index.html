@@ -5,7 +5,13 @@
     <script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs="debugUIEnabled: false; markersAreaEnabled: true; detectionMode: mono_and_matrix; matrixCodeType: 3x3; smooth: true; smoothCount: 5; smoothTolerance: 0.01;">
+    <a-scene embedded arjs="debugUIEnabled: false; 
+    detectionMode: mono_and_matrix; 
+    matrixCodeType: 3x3; 
+    smooth: true; 
+    smoothCount: 10; 
+    smoothTolerance: 0.01; 
+    smoothThreshold: 5;">
         <!-- Камера -->
         <a-marker preset="hiro" type="pattern" url="marker.patt">
             <!-- 3D-модель -->
