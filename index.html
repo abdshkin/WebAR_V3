@@ -6,12 +6,10 @@
 </head>
 <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs="debugUIEnabled: false; 
-    detectionMode: mono_and_matrix; 
-    matrixCodeType: 3x3; 
-    smooth: true; 
-    smoothCount: 10; 
-    smoothTolerance: 0.01; 
-    smoothThreshold: 5;">
+                        detectionMode: best; 
+                        smooth: true; 
+                        smoothCount: 10;">
+
         <!-- Камера -->
         <a-marker preset="hiro" type="pattern" url="marker.patt">
             <!-- 3D-модель -->
