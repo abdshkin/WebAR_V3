@@ -11,17 +11,19 @@ function stopSpeech() {
 
 let model = document.querySelector("#model");
 
-AFRAME.registerComponent('animation-mixer', {
-    init: function () {
-        this.el.addEventListener('model-loaded', () => {
-            this.mixer = new THREE.AnimationMixer(this.el.getObject3D('mesh'));
-            this.mixer.clipAction(this.el.getObject3D('mesh').animations[0]).play();
-        });
-    },
-    tick: function (time, deltaTime) {
-        if (this.mixer) this.mixer.update(deltaTime / 1000);
-    }
-});
+if (!AFRAME.components['animation-mixer']) {
+    AFRAME.registerComponent('animation-mixer', {
+        init: function () {
+            this.el.addEventListener('model-loaded', () => {
+                this.mixer = new THREE.AnimationMixer(this.el.getObject3D('mesh'));
+                this.mixer.clipAction(this.el.getObject3D('mesh').animations[0]).play();
+            });
+        },
+        tick: function (_time, deltaTime) {
+            if (this.mixer) this.mixer.update(deltaTime / 1000);
+        }
+    });
+}
 
 function toggleAnimation() {
     if (model.hasAttribute("animation-mixer")) {
