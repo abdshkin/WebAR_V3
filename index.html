@@ -11,16 +11,17 @@
     <a-scene embedded arjs="debugUIEnabled: false; detectionMode: mono; matrixCodeType: 3x3;">
         <a-marker preset="hiro" type="pattern" url="marker.patt">
         <!-- 3D model with animation -->
-        <a-entity gltf-model="url(model.glb)" animation-mixer="clip: *" scale="0.5 0.5 0.5"></a-entity>
-
+        <a-entity id="model" gltf-model="model.glb" scale="0.4 0.4 0.4"></a-entity>
+        <a-entity id="playButton" geometry="primitive: box" material="color: green" position="0 1 -3"></a-entity>
+        <a-entity id="stopButton" geometry="primitive: box" material="color: red" position="1 1 -3"></a-entity>
         </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
 
     <!-- Control Buttons -->
     <div class="buttons">
-        <button onclick="playSpeech()">Говорить</button>
-        <button onclick="stopSpeech()">Стоп</button>
+        <button onclick="playButton()">Говорить</button>
+        <button onclick="stopButton()">Стоп</button>
         <button onclick="toggleAnimation()">Анимация</button>
     </div>
 
