@@ -11,6 +11,10 @@ function stopSpeech() {
 
 let model = document.querySelector("#model");
 
+if (!model) {
+    console.error("Model element not found");
+}
+
 if (!AFRAME.components['animation-mixer']) {
     AFRAME.registerComponent('animation-mixer', {
         init: function () {
@@ -25,11 +29,13 @@ if (!AFRAME.components['animation-mixer']) {
     });
 }
 
-function toggleAnimation() {
+if (model) {
     if (model.hasAttribute("animation-mixer")) {
         model.removeAttribute("animation-mixer"); // Stopping the animation
     } else {
         model.setAttribute("animation-mixer", "clip: Mirzhakip.002Action; loop: repeat"); // Start animation
     }
+} else {
+    console.error("Model element not found");
 }
 
