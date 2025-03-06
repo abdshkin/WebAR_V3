@@ -10,9 +10,8 @@
 <body>
     <a-scene embedded arjs="debugUIEnabled: false; detectionMode: mono; matrixCodeType: 3x3;">
         <a-marker preset="hiro" type="pattern" url="marker.patt">
-            <!-- 3D-модель с анимацией -->
-            <!-- 3D model with animation -->
-          animation-mixer="clip: *"></a-entity>
+        <!-- 3D model with animation -->
+        <a-entity gltf-model="url(model.gltf)" animation-mixer="clip: *"></a-entity>
 
         </a-marker>
         <a-entity camera></a-entity>
