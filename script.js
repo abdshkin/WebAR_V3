@@ -11,11 +11,11 @@ function stopSpeech() {
 
 function toggleAnimation() {
     let model = document.querySelector("#model");
+
     if (model.hasAttribute("animation-mixer")) {
-        model.removeAttribute("animation-mixer"); // Остановка анимации
+        model.removeAttribute("animation-mixer"); // Останавливаем анимацию
     } else {
-        model.setAttribute("animation-mixer", "clip: Mirzhakip.002Action"); // Запуск анимации
+        model.setAttribute("animation-mixer", "clip: Mirzhakip.002Action; loop: repeat"); // Запускаем анимацию
     }
 }
 
-}
