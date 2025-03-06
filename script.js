@@ -19,18 +19,29 @@ document.addEventListener('DOMContentLoaded', () => {
     let playButton = document.getElementById("playButton");
     let stopButton = document.getElementById("stopButton");
 
-    playButton.addEventListener('click', () => {
-        if (model && !model.hasAttribute("animation-mixer")) {
+    if (playButton) {
+        playButton.addEventListener('click', toggleAnimation);
+    } else {
+        console.error("Play button element not found");
+    }
+
+    if (stopButton) {
+        stopButton.addEventListener('click', toggleAnimation);
+    } else {
+        console.error("Stop button element not found");
+    }
+});
+
+function toggleAnimation() {
+    let model = document.querySelector("#model");
+    if (model) {
+        if (model.hasAttribute("animation-mixer")) {
+            model.removeAttribute("animation-mixer"); // Stop animation
+        } else {
             model.setAttribute("animation-mixer", "clip: Mirzhakip.002Action; loop: repeat"); // Start animation
         }
-    });
-
-    stopButton.addEventListener('click', () => {
-        if (model && model.hasAttribute("animation-mixer")) {
-            model.removeAttribute("animation-mixer"); // Stop animation
-        }
-    });
-});
+    }
+}
 
 if (!AFRAME.components['animation-mixer']) {
     AFRAME.registerComponent('animation-mixer', {
