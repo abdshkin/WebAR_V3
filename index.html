@@ -3,8 +3,10 @@
 <head>
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
 </head>
-<body style="margin: 0; overflow: hidden;">
+<body>
     <a-scene embedded arjs="debugUIEnabled: false; 
                         detectionMode: best; 
                         smooth: true; 
@@ -20,5 +22,32 @@
         </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
+       <!-- Кнопки управления -->
+       <div class="buttons">
+        <button onclick="playSpeech()">Говорить</button>
+        <button onclick="stopSpeech()">Стоп</button>
+        <button onclick="toggleModel()">Скрыть/Показать</button>
+    </div>
+
+
+    <audio id="voice" src="speech.mp3"></audio>
+
+    <script>
+        function playSpeech() {
+            let audio = document.getElementById("voice");
+            audio.play();
+        }
+
+        function stopSpeech() {
+            let audio = document.getElementById("voice");
+            audio.pause();
+            audio.currentTime = 0;
+        }
+
+        function toggleModel() {
+            let model = document.querySelector("a-entity[gltf-model]");
+            model.setAttribute("visible", model.getAttribute("visible") === "true" ? "false" : "true");
+        }
+    </script>
 </body>
 </html>
