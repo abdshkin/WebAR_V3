@@ -5,6 +5,7 @@
     <script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
+    <script src="script.js"></script>
 </head>
 <body>
     <a-scene embedded arjs="debugUIEnabled: false; detectionMode: mono; matrixCodeType: 3x3;">
@@ -23,30 +24,5 @@
     </div>
 
     <audio id="voice" src="speech.mp3"></audio>
-
-    <script>
-        function playSpeech() {
-            let audio = document.getElementById("voice");
-            audio.play();
-        }
-
-        function stopSpeech() {
-            let audio = document.getElementById("voice");
-            audio.pause();
-            audio.currentTime = 0;
-        }
-
-        function toggleAnimation() {
-    let model = document.querySelector("#model");
-
-    if (model && model.components["animation-mixer"]) {
-        model.setAttribute("animation-mixer", "clip: Mirzhakip.002Action"); // Явно задаем нужную анимацию
-    } else {
-        console.log("Анимация не найдена или не загружена.");
-    }
-}
-
-
-    </script>
 </body>
 </html>
