@@ -7,27 +7,19 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    <a-scene embedded arjs="debugUIEnabled: false; 
-                        detectionMode: best; 
-                        smooth: true; 
-                        smoothCount: 10;">
-
-        <!-- Камера -->
-        <a-marker type="pattern" url="marker.patt">
+    <a-scene embedded arjs="debugUIEnabled: false; detectionMode: mono; matrixCodeType: 3x3;">
+        <a-marker preset="custom" type="pattern" url="marker.patt">
             <!-- 3D-модель -->
-            <a-entity gltf-model="model.glb"
-            position="0 0 0"
-            scale="0.5 0.5 0.5">
-        </a-entity>
+            <a-entity gltf-model="model.glb" position="0 0 0" scale="0.5 0.5 0.5"></a-entity>
         </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
-       <!-- Кнопки управления -->
-       <div class="buttons">
+
+    <!-- Кнопки управления -->
+    <div class="buttons">
         <button onclick="playSpeech()">Говорить</button>
         <button onclick="stopSpeech()">Стоп</button>
     </div>
-
 
     <audio id="voice" src="speech.mp3"></audio>
 
