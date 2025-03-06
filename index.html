@@ -26,7 +26,6 @@
        <div class="buttons">
         <button onclick="playSpeech()">Говорить</button>
         <button onclick="stopSpeech()">Стоп</button>
-        <button onclick="toggleModel()">Скрыть/Показать</button>
     </div>
 
 
@@ -42,11 +41,6 @@
             let audio = document.getElementById("voice");
             audio.pause();
             audio.currentTime = 0;
-        }
-
-        function toggleModel() {
-            let model = document.querySelector("a-entity[gltf-model]");
-            model.setAttribute("visible", model.getAttribute("visible") === "true" ? "false" : "true");
         }
     </script>
 </body>
