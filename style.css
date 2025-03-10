@@ -12,7 +12,7 @@ body {
     bottom: 10px;
     display: flex;
     justify-content: center;
-    gap: 10px; /* Добавляет промежуток между кнопками */
+    gap: 10px; /* Adds space between buttons */
 }
 
 button {
@@ -23,4 +23,12 @@ button {
     color: white;
     border-radius: 10px;
     cursor: pointer;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
 }
