@@ -1,12 +1,25 @@
-let audio = document.getElementById("voice");
+let audioElements = document.querySelectorAll("audio");
+let currentAudioIndex = 0;
 
 function playSpeech() {
-    audio.play();
+    audioElements[currentAudioIndex].play();
 }
 
 function stopSpeech() {
-    audio.pause();
-    audio.currentTime = 0;
+    audioElements[currentAudioIndex].pause();
+    audioElements[currentAudioIndex].currentTime = 0;
+}
+
+function prevAudio() {
+    stopSpeech();
+    currentAudioIndex = (currentAudioIndex - 1 + audioElements.length) % audioElements.length;
+    playSpeech();
+}
+
+function nextAudio() {
+    stopSpeech();
+    currentAudioIndex = (currentAudioIndex + 1) % audioElements.length;
+    playSpeech();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,8 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Model element not found");
     }
 
-    let playButton = document.getElementById("playButton");
-    let stopButton = document.getElementById("stopButton");
+    let playButton = document.querySelector(".buttons button:nth-child(1)");
+    let stopButton = document.querySelector(".buttons button:nth-child(2)");
+    let prevButton = document.querySelector(".buttons button:nth-child(4)");
+    let nextButton = document.querySelector(".buttons button:nth-child(5)");
 
     if (playButton) {
         playButton.addEventListener('click', playSpeech);
@@ -29,6 +44,18 @@ document.addEventListener('DOMContentLoaded', () => {
         stopButton.addEventListener('click', stopSpeech);
     } else {
         console.error("Stop button element not found");
+    }
+
+    if (prevButton) {
+        prevButton.addEventListener('click', prevAudio);
+    } else {
+        console.error("Previous button element not found");
+    }
+
+    if (nextButton) {
+        nextButton.addEventListener('click', nextAudio);
+    } else {
+        console.error("Next button element not found");
     }
 });
 
