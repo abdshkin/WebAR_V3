@@ -22,6 +22,12 @@ function nextAudio() {
     playSpeech();
 }
 
+window.addEventListener('beforeunload', () => {
+    audioElements.forEach(audio => {
+        audio.pause();
+    });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     let model = document.querySelector("#model");
 
