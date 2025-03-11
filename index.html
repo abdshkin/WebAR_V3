@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    <a-scene embedded arjs="debugUIEnabled: false; detectionMode: mono; matrixCodeType: 3x3; trackingMethod: performance; sourceType: webcam; sourceWidth: 1280; sourceHeight: 720; displayWidth: 1280; displayHeight: 720;">
+    <a-scene embedded arjs="debugUIEnabled: false; detectionMode: mono; matrixCodeType: 3x3; trackingMethod: best; sourceType: webcam; sourceWidth: 640; sourceHeight: 480; displayWidth: 640; displayHeight: 480;"></a-scene>
         <a-marker preset="hiro" type="pattern" url="marker.patt">
             <!-- 3D model with animation -->
             <a-entity id="model" gltf-model="model.glb" scale="1.4 1.4 1.4"></a-entity>
