@@ -22,6 +22,10 @@ function nextAudio() {
     playSpeech();
 }
 
+audioElements.forEach(audio => {
+    audio.addEventListener('ended', nextAudio);
+});
+
 window.addEventListener('beforeunload', () => {
     audioElements.forEach(audio => {
         audio.pause();
