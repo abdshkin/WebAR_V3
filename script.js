@@ -18,12 +18,18 @@ function prevAudio() {
 
 function nextAudio() {
     stopSpeech();
-    currentAudioIndex = (currentAudioIndex + 1) % audioElements.length;
-    playSpeech();
+    if (currentAudioIndex < audioElements.length - 1) {
+        currentAudioIndex = (currentAudioIndex + 1) % audioElements.length;
+        playSpeech();
+    }
 }
 
 audioElements.forEach(audio => {
-    audio.addEventListener('ended', nextAudio);
+    audio.addEventListener('ended', () => {
+        if (currentAudioIndex < audioElements.length - 1) {
+            nextAudio();
+        }
+    });
 });
 
 window.addEventListener('beforeunload', () => {
