@@ -3,11 +3,13 @@ let currentAudioIndex = 0;
 
 function playSpeech() {
     audioElements[currentAudioIndex].play();
+    toggleAnimation(); // Start animation when play button is clicked
 }
 
 function stopSpeech() {
     audioElements[currentAudioIndex].pause();
     audioElements[currentAudioIndex].currentTime = 0;
+    toggleAnimation(); // Stop animation when stop button is clicked
 }
 
 function prevAudio() {
@@ -18,17 +20,13 @@ function prevAudio() {
 
 function nextAudio() {
     stopSpeech();
-    if (currentAudioIndex < audioElements.length - 1) {
-        currentAudioIndex = (currentAudioIndex + 1) % audioElements.length;
-        playSpeech();
-    }
+    currentAudioIndex = (currentAudioIndex + 1) % audioElements.length;
+    playSpeech();
 }
 
 audioElements.forEach(audio => {
     audio.addEventListener('ended', () => {
-        if (currentAudioIndex < audioElements.length - 1) {
-            nextAudio();
-        }
+        nextAudio();
     });
 });
 
