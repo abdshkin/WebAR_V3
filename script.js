@@ -14,13 +14,13 @@ function stopSpeech() {
 
 function prevAudio() {
     stopSpeech();
-    currentAudioIndex = (currentAudioIndex - 1 + audioElements.length) % audioElements.length;
+    currentAudioIndex = 0; // Set to the index of the Kazakh audio
     playSpeech();
 }
 
 function nextAudio() {
     stopSpeech();
-    currentAudioIndex = (currentAudioIndex + 1) % audioElements.length;
+    currentAudioIndex = 1; // Set to the index of the Russian audio
     playSpeech();
 }
 
